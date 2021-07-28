@@ -10,7 +10,7 @@ class TabNavigation extends StatefulWidget {
 }
 
 class _TabNavigationState extends State<TabNavigation> {
-  var lastTime = DateTime.now();
+  var lastTime;
   var _currentIndex = 0;
 
   var _currentBody = Container(
@@ -61,7 +61,7 @@ class _TabNavigationState extends State<TabNavigation> {
 
   /// 防误触返回键
   Future<bool> _onWillPop() async {
-    if (DateTime.now().difference(lastTime) > Duration(seconds: 2)) {
+    if (lastTime == null || DateTime.now().difference(lastTime) > Duration(seconds: 2)) {
       lastTime = DateTime.now();
       ToastUtil.showToast(StringConfig.exitTips);
       return false;

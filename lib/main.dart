@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:eyepetizer/app_init.dart';
+import 'package:eyepetizer/http/http_manager.dart';
+import 'package:eyepetizer/http/url.dart';
 import 'package:eyepetizer/tab_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,11 @@ class MyApp extends StatelessWidget {
     return FutureBuilder(
       future: AppInit.hideScreen(),
       builder: (context, snapshot) {
+        HttpManager.getData(Url.feedUrl, headers: Url.httpHeader, success: (result) {
+          print(result);
+        }, fail: (e) {
+          print(e);
+        });
         var widget = snapshot.connectionState == ConnectionState.done
             ? TabNavigation()
             : Scaffold(
