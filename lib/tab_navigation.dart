@@ -1,5 +1,7 @@
 import 'package:eyepetizer/config/string.dart';
 import 'package:eyepetizer/utils/toast_util.dart';
+import 'package:eyepetizer/viewmodel/tab_navigation_viewmodel.dart';
+import 'package:eyepetizer/widget/provider_widget.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatefulWidget {
@@ -11,28 +13,43 @@ class TabNavigation extends StatefulWidget {
 
 class _TabNavigationState extends State<TabNavigation> {
   var lastTime;
-  var _currentIndex = 0;
 
-  var _currentBody = Container(
-    color: Colors.blue,
-  );
+  PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    final _bottomNavigationBar = BottomNavigationBar(
-      items: _navItems(),
-      currentIndex: _currentIndex,
-      onTap: _onTap,
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Color(0xff000000),
-      unselectedItemColor: Color(0xff9a9a9a),
-      selectedFontSize: 13,
-      unselectedFontSize: 13,
+    final _bottomNavigationBar = ProviderWidget<TabNavigationViewModel>(
+      model: TabNavigationViewModel(),
+      builder: (context, model, child) {
+        return BottomNavigationBar(
+          items: _navItems(),
+          currentIndex: model.currentIndex,
+          onTap: (value) {
+            if(model.currentIndex != value) {
+              _pageController.jumpToPage(value);
+              model.changeBottomTabIndex(value);
+            }
+          },
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Color(0xff000000),
+          unselectedItemColor: Color(0xff9a9a9a),
+          selectedFontSize: 13,
+          unselectedFontSize: 13,
+        );
+      },
     );
 
     return WillPopScope(
         child: Scaffold(
-          body: _currentBody,
+          body: PageView(
+            controller: _pageController,
+            children: [
+              Container(color: Colors.blue,),
+              Container(color: Colors.green,),
+              Container(color: Colors.yellow,),
+              Container(color: Colors.pink,),
+            ],
+          ),
           bottomNavigationBar: _bottomNavigationBar,
         ),
         onWillPop: _onWillPop);
@@ -54,47 +71,29 @@ class _TabNavigationState extends State<TabNavigation> {
 
   _bottomItem(String title, String normalIcon, String selectIcon) {
     return BottomNavigationBarItem(
-        icon: Image.asset(normalIcon, width: 24, height: 24,),
-        activeIcon: Image.asset(selectIcon, width: 24, height: 24,),
+        icon: Image.asset(
+          normalIcon,
+          width: 24,
+          height: 24,
+        ),
+        activeIcon: Image.asset(
+          selectIcon,
+          width: 24,
+          height: 24,
+        ),
         label: title);
   }
 
   /// 防误触返回键
   Future<bool> _onWillPop() async {
-    if (lastTime == null || DateTime.now().difference(lastTime) > Duration(seconds: 2)) {
+    if (lastTime == null ||
+        DateTime.now().difference(lastTime) > Duration(seconds: 2)) {
       lastTime = DateTime.now();
       ToastUtil.showToast(StringConfig.exitTips);
       return false;
     } else {
       return true;
     }
-  }
 
-  _onTap(int index) {
-    switch(index) {
-      case 0:
-        _currentBody = Container(
-          color: Colors.blue,
-        );
-        break;
-      case 1:
-        _currentBody = Container(
-          color: Colors.green,
-        );
-        break;
-      case 2:
-        _currentBody = Container(
-          color: Colors.yellow,
-        );
-        break;
-      case 3:
-        _currentBody = Container(
-          color: Colors.pink,
-        );
-        break;
-    }
-    setState(() {
-      _currentIndex = index;
-    });
   }
 }
