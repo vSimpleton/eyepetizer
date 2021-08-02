@@ -6,9 +6,10 @@ class HttpManager {
   static Utf8Decoder utf8decoder = Utf8Decoder();
 
   static void getData(String url,
-      {required Map<String, String> headers,
-      required Function success,
-      required Function fail, Function? complete}) async {
+      {Map<String, String> headers,
+      Function success,
+      Function fail,
+      Function complete}) async {
     try {
       var response = await http.get(Uri.parse(url), headers: headers);
       if (response.statusCode == 200) {
@@ -21,13 +22,13 @@ class HttpManager {
     } catch (e) {
       fail(e);
     } finally {
-      if(complete != null) {
+      if (complete != null) {
         complete();
       }
     }
   }
 
-  static Future requestData(String url, {required Map<String, String> headers}) async {
+  static Future requestData(String url, {Map<String, String> headers}) async {
     try {
       var response = await http.get(Uri.parse(url), headers: headers);
       if (response.statusCode == 200) {
@@ -40,5 +41,4 @@ class HttpManager {
       Future.error(e);
     }
   }
-
 }

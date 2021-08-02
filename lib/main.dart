@@ -1,8 +1,6 @@
 import 'dart:io';
 
 import 'package:eyepetizer/app_init.dart';
-import 'package:eyepetizer/http/http_manager.dart';
-import 'package:eyepetizer/http/url.dart';
 import 'package:eyepetizer/tab_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -4,7 +4,7 @@ import 'package:eyepetizer/widget/provider_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeBodyPage extends StatefulWidget {
-  const HomeBodyPage({Key? key}) : super(key: key);
+  const HomeBodyPage({Key key}) : super(key: key);
 
   @override
   _HomeBodyPageState createState() => _HomeBodyPageState();

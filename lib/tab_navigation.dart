@@ -6,7 +6,7 @@ import 'package:eyepetizer/widget/provider_widget.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatefulWidget {
-  const TabNavigation({Key? key}) : super(key: key);
+  const TabNavigation({Key key}) : super(key: key);
 
   @override
   _TabNavigationState createState() => _TabNavigationState();
