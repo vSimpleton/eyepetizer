@@ -1,5 +1,8 @@
 import 'package:eyepetizer/config/string.dart';
-import 'package:eyepetizer/route/home_page.dart';
+import 'package:eyepetizer/route/discovery/discovery_page.dart';
+import 'package:eyepetizer/route/home/home_page.dart';
+import 'package:eyepetizer/route/hot/hot_page.dart';
+import 'package:eyepetizer/route/mine/mine_page.dart';
 import 'package:eyepetizer/utils/toast_util.dart';
 import 'package:eyepetizer/viewmodel/tab_navigation_viewmodel.dart';
 import 'package:eyepetizer/widget/provider_widget.dart';
@@ -46,9 +49,9 @@ class _TabNavigationState extends State<TabNavigation> {
             controller: _pageController,
             children: [
               HomePage(),
-              Container(color: Colors.green,),
-              Container(color: Colors.yellow,),
-              Container(color: Colors.pink,),
+              DiscoveryPage(),
+              HotPage(),
+              MinePage(),
             ],
           ),
           bottomNavigationBar: _bottomNavigationBar,

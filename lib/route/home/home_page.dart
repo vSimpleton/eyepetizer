@@ -1,5 +1,5 @@
 import 'package:eyepetizer/config/string.dart';
-import 'package:eyepetizer/route/home_body_page.dart';
+import 'package:eyepetizer/route/home/home_body_page.dart';
 import 'package:eyepetizer/widget/app_bar.dart';
 import 'package:flutter/material.dart';
 
