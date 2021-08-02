@@ -1,4 +1,5 @@
 import 'package:eyepetizer/viewmodel/home_page_viewmodel.dart';
+import 'package:eyepetizer/widget/banner_widget.dart';
 import 'package:eyepetizer/widget/loading_state_widget.dart';
 import 'package:eyepetizer/widget/provider_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +21,22 @@ class _HomeBodyPageState extends State<HomeBodyPage>
       onModelInit: (model) => model.refresh(),
       builder: (context, model, child) {
         return LoadingStateWidget(
-            retry: model.retry,
-            viewState: model.viewState,
-            child: Container(
-              child: Text('页面加载完成'),
-              alignment: Alignment.center,
-            ));
+          retry: model.retry,
+          viewState: model.viewState,
+          child: _banner(model),
+        );
       },
+    );
+  }
+
+  _banner(model) {
+    return Container(
+      height: 200,
+      padding: EdgeInsets.only(left: 10, top:10,right: 10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(5),
+        child: BannerWidget(model: model,),
+      ),
     );
   }
 
