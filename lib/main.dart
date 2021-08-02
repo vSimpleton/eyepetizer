@@ -7,6 +7,7 @@ import 'package:eyepetizer/tab_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,11 +25,11 @@ class MyApp extends StatelessWidget {
     return FutureBuilder(
       future: AppInit.hideScreen(),
       builder: (context, snapshot) {
-        HttpManager.getData(Url.feedUrl, headers: Url.httpHeader, success: (result) {
-          print(result);
-        }, fail: (e) {
-          print(e);
-        });
+        // HttpManager.getData(Url.feedUrl, headers: Url.httpHeader, success: (result) {
+        //   print(result);
+        // }, fail: (e) {
+        //   print(e);
+        // });
         var widget = snapshot.connectionState == ConnectionState.done
             ? TabNavigation()
             : Scaffold(
@@ -56,8 +57,12 @@ class MaterialAppWidget extends StatefulWidget {
 class _MaterialAppWidgetState extends State<MaterialAppWidget> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "开眼视频", initialRoute: '/', routes: {
-      '/': (context) => widget.child,
-    });
+    return GetMaterialApp(
+      title: "开眼视频",
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => widget.child),
+      ],
+    );
   }
 }

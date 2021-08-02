@@ -1,4 +1,5 @@
 import 'package:eyepetizer/config/string.dart';
+import 'package:eyepetizer/route/home_page.dart';
 import 'package:eyepetizer/utils/toast_util.dart';
 import 'package:eyepetizer/viewmodel/tab_navigation_viewmodel.dart';
 import 'package:eyepetizer/widget/provider_widget.dart';
@@ -44,7 +45,7 @@ class _TabNavigationState extends State<TabNavigation> {
           body: PageView(
             controller: _pageController,
             children: [
-              Container(color: Colors.blue,),
+              HomePage(),
               Container(color: Colors.green,),
               Container(color: Colors.yellow,),
               Container(color: Colors.pink,),

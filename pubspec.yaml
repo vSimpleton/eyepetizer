@@ -16,6 +16,7 @@ dependencies:
   fluttertoast: ^8.0.7
   http: ^0.13.3
   provider: ^5.0.0
+  get: ^4.3.0
 
 dev_dependencies:
   flutter_test:
