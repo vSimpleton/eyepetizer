@@ -1,4 +1,5 @@
 import 'package:eyepetizer/utils/cache_image.dart';
+import 'package:eyepetizer/utils/navigator_util.dart';
 import 'package:eyepetizer/viewmodel/home_page_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -14,8 +15,7 @@ class BannerWidget extends StatelessWidget {
       itemCount: model.bannerLists?.length ?? 0,
       autoplay: true,
       onTap: (index) {
-        print("点击了banner图$index");
-        // TODO：跳转 detail
+        toNamed("/detail", model.bannerLists[index].data);
       },
       itemBuilder: (context, index) {
         return Stack(

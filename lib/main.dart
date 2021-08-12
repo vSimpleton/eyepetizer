@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:eyepetizer/app_init.dart';
+import 'package:eyepetizer/route/home/video/video_detail_page.dart';
 import 'package:eyepetizer/tab_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +61,7 @@ class _MaterialAppWidgetState extends State<MaterialAppWidget> {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => widget.child),
+        GetPage(name: '/detail', page: () => VideoDetailPage()),
       ],
     );
   }
