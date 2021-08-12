@@ -1,6 +1,8 @@
 import 'package:eyepetizer/model/issue.dart';
+import 'package:eyepetizer/route/home/video/video_detail_page.dart';
 import 'package:eyepetizer/utils/cache_image.dart';
 import 'package:eyepetizer/utils/date_util.dart';
+import 'package:eyepetizer/utils/navigator_util.dart';
 import 'package:eyepetizer/utils/share_util.dart';
 import 'package:flutter/material.dart';
 
@@ -20,8 +22,7 @@ class ListItemWidget extends StatelessWidget {
         // GestureDetector：手势识别 -- Inkwell
         GestureDetector(
           onTap: () {
-            print('点击了,跳转详情页');
-            // TODO:跳转详情页
+            toNamed("/detail", item.data);
           },
           child: Padding(
             padding: EdgeInsets.fromLTRB(15, 10, 15, 10),

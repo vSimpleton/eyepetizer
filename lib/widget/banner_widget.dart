@@ -1,3 +1,4 @@
+import 'package:eyepetizer/route/home/video/video_detail_page.dart';
 import 'package:eyepetizer/utils/cache_image.dart';
 import 'package:eyepetizer/utils/navigator_util.dart';
 import 'package:eyepetizer/viewmodel/home_page_viewmodel.dart';

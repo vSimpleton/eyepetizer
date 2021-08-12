@@ -6,7 +6,8 @@ import 'package:eyepetizer/utils/navigator_util.dart';
 import 'package:eyepetizer/viewmodel/video_detail_viewmodel.dart';
 import 'package:eyepetizer/widget/loading_state_widget.dart';
 import 'package:eyepetizer/widget/provider_widget.dart';
-import 'package:eyepetizer/widget/video_item_widget.dart';
+import 'package:eyepetizer/widget/video/video_item_widget.dart';
+import 'package:eyepetizer/widget/video/video_play_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,7 +26,7 @@ class VideoDetailPage extends StatefulWidget {
 class _VideoDetailPageState extends State<VideoDetailPage> with WidgetsBindingObserver {
 
   // 允许element在树周围移动(改变父节点), 而不会丢失状态
-  // final GlobalKey<VideoPlayWidgetState> videoKey = GlobalKey();
+  final GlobalKey<VideoPlayWidgetState> videoKey = GlobalKey();
   Data data;
 
   @override
@@ -38,14 +39,14 @@ class _VideoDetailPageState extends State<VideoDetailPage> with WidgetsBindingOb
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    //AppLifecycleState当前页面的状态(是否可见)
-    // if (state == AppLifecycleState.paused) {
-    //   // 页面不可见时,暂停视频
-    //   // videoKey.currentState：树中当前具有此全局密钥的小部件的State对象
-    //   videoKey.currentState.pause();
-    // } else if (state == AppLifecycleState.resumed) {
-    //   videoKey.currentState.play();
-    // }
+    // AppLifecycleState当前页面的状态(是否可见)
+    if (state == AppLifecycleState.paused) {
+      // 页面不可见时,暂停视频
+      // videoKey.currentState：树中当前具有此全局密钥的小部件的State对象
+      videoKey.currentState.pause();
+    } else if (state == AppLifecycleState.resumed) {
+      videoKey.currentState.play();
+    }
   }
 
   @override
@@ -77,13 +78,13 @@ class _VideoDetailPageState extends State<VideoDetailPage> with WidgetsBindingOb
             value: SystemUiOverlayStyle.light,
           ),
           //Hero动画--视频播放
-          // Hero(
-          //   tag: '${data.id}${data.time}',
-          //   child: VideoPlayWidget(
-          //     key: videoKey,
-          //     url: data.playUrl,
-          //   ),
-          // ),
+          Hero(
+            tag: '${data.id}${data.time}',
+            child: VideoPlayWidget(
+              key: videoKey,
+              url: data.playUrl,
+            ),
+          ),
           // Expanded：强制填满剩余空间
           Expanded(
             flex: 1,

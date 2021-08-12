@@ -22,6 +22,10 @@ dependencies:
   pull_to_refresh: ^2.0.0
   flustars: ^2.0.1
   share_plus: ^2.1.4
+  # 视频播放库
+  video_player: ^2.1.12
+  # 对 video_player库 进行了一层封装，便于上层使用
+  chewie: ^1.0.0
 
 dev_dependencies:
   flutter_test:
