@@ -14,7 +14,7 @@ class BannerWidget extends StatelessWidget {
       itemCount: model.bannerLists?.length ?? 0,
       autoplay: true,
       onTap: (index) {
-        print("点击了banner图。。$index}");
+        print("点击了banner图$index");
         // TODO：跳转 detail
       },
       itemBuilder: (context, index) {
