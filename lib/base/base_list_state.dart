@@ -1,5 +1,5 @@
 import 'package:eyepetizer/model/paging_model.dart';
-import 'package:eyepetizer/viewmodel/base_list_viewmodel.dart';
+import 'package:eyepetizer/base/base_list_viewmodel.dart';
 import 'package:eyepetizer/widget/loading_state_widget.dart';
 import 'package:eyepetizer/widget/provider_widget.dart';
 import 'package:flutter/material.dart';

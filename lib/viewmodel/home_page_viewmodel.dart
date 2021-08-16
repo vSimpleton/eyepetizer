@@ -4,7 +4,7 @@ import 'package:eyepetizer/model/issue.dart';
 import 'package:eyepetizer/model/issue_model.dart';
 import 'package:eyepetizer/model/paging_model.dart';
 import 'package:eyepetizer/utils/toast_util.dart';
-import 'package:eyepetizer/viewmodel/base_list_viewmodel.dart';
+import 'package:eyepetizer/base/base_list_viewmodel.dart';
 import 'package:eyepetizer/widget/loading_state_widget.dart';
 
 class HomePageViewModel extends BaseListViewModel<Item, IssueEntity> {

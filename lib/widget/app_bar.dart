@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-appBar(String title, {bool showBack = true, List<Widget> actions}) {
+appBar(String title, {bool showBack = true, List<Widget> actions, PreferredSizeWidget bottom}) {
   return AppBar(
     title: Text(
       title,
@@ -17,5 +17,6 @@ appBar(String title, {bool showBack = true, List<Widget> actions}) {
           )
         : null,
     actions: actions,
+    bottom: bottom,
   );
 }
