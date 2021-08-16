@@ -1,4 +1,5 @@
 import 'package:eyepetizer/config/string.dart';
+import 'package:eyepetizer/route/discovery/category_page.dart';
 import 'package:eyepetizer/route/discovery/follow_page.dart';
 import 'package:eyepetizer/widget/app_bar.dart';
 import 'package:eyepetizer/widget/tab_bar.dart';
@@ -51,7 +52,7 @@ class _DiscoveryPageState extends State<DiscoveryPage>
         controller: _tabController,
         children: [
           FollowPage(),
-          Container(color: Colors.grey),
+          CategoryPage(),
           Container(color: Colors.blue),
           Container(color: Colors.yellow),
           Container(color: Colors.pink),

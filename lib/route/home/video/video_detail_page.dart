@@ -296,7 +296,6 @@ class _VideoDetailPageState extends State<VideoDetailPage> with WidgetsBindingOb
               callBack: () {
                 // 自己出栈
                 Navigator.pop(context);
-                // TODO:路由跳转
                 toPage(VideoDetailPage(videoDta: model.itemList[index].data));
               },
             );
