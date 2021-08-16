@@ -27,6 +27,10 @@ dependencies:
   # 对 video_player库 进行了一层封装，便于上层使用
   chewie: ^1.0.0
   animations: ^2.0.1
+  readmore: ^2.1.0
+  flutter_webview_plugin: ^0.4.0
+  loading_more_list: ^4.0.1
+  photo_view: ^0.12.0
 
 dev_dependencies:
   flutter_test:
