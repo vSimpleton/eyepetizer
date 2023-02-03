@@ -11,7 +11,10 @@ class MainActivity: FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        MethodChannel(flutterEngine?.dartExecutor, "toast_plugin").setMethodCallHandler(mToastPlugin)
+
+        flutterEngine?.dartExecutor?.binaryMessenger?.let {
+            MethodChannel(it, "toast_plugin").setMethodCallHandler(mToastPlugin)
+        }
     }
 
 }
