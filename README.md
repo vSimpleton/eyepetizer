@@ -1,16 +1,18 @@
-# eyepetizer
+# Eyepetizer
 
-A new Flutter project.
+A simplified version of Eyepetizer implemented using the API interface provided by Eyepetizer.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Screenshot
 
-A few resources to get you started if this is your first Flutter project:
+![开眼视频欢迎页](https://user-images.githubusercontent.com/56062496/216504743-faeb66f8-12b1-41eb-a068-b22f141cd1ff.png)
+![开眼视频首页](https://user-images.githubusercontent.com/56062496/216504177-9237cc13-9467-4d77-a31d-1c6322904288.png)
+![开眼视频分类页](https://user-images.githubusercontent.com/56062496/216504186-b38a3d96-f722-4886-889c-5339ea203ffb.png)
+![开眼视频播放详情页](https://user-images.githubusercontent.com/56062496/216504191-7d96d709-7561-43fb-ae11-ef9d431a6dd7.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Build for Android
+
+```shell
+flutter build apk --obfuscate --split-debug-info=Debug_Files --target-platform android-arm,android-arm64 --split-per-abi
+```
